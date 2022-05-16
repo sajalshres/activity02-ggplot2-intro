@@ -151,8 +151,8 @@ Jitterplot helps to identify the relationship between two or more variables.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
 Then, go to GitHub and compare/contrast your `activity02-ggplot2-intro.Rmd` and `activity02-ggplot2-intro.md` files.
-Which is easier to read?
-Which looks more professional?
+Which is easier to read? Makrdown
+Which looks more professional? Markdown
 
 **Response**:
 
@@ -165,12 +165,13 @@ Try doing the following in the code chunk below with my *hint*:
 - *Add* another geometry layer for the jitterplot.
 
 ```{r box-jitter-combined}
-
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, color = species)) +
+  geom_boxplot() +
+  geom_jitter()
 ```
 
 Play around with doing the jitterplot laid over the boxplot and the boxplot laid over the jitterplot.
-Which do you prefer?
-Why?
+Which do you prefer? jitterplot over boxplot
 
 **Response**:
 
@@ -185,7 +186,10 @@ In the code chunk below, explore different methods to try to create this plot.
 A hint, all `geom_*` have a `mapping` argument.
 
 ```{r jitter-colored-only}
-
+ggplot(data = penguins,
+       mapping = aes(x = flipper_length_mm, y = species)) +
+  geom_boxplot() +
+  geom_jitter(mapping = aes(color = species))
 ```
 
 In the above code chunk, continue to play around with having the aesthetics mapped in the different layers.
